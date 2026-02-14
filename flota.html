@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuestra Flota - MiguelGo Cuba Taxi</title>
+  <body style="background-color: rgb(247, 241, 225);"></body>
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Estilo del botón flotante */
+    #btnScrollTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background-color: #FFD700; /* Amarillo taxi */
+      color: black;
+      border: none;
+      display: none; /* Oculto por defecto */
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+    }
+    #btnScrollTop.show {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #btnScrollTop:hover {
+      background-color: #FFC300; /* tono más oscuro al pasar el mouse */
+    }
+  </style>
+</head>
+<body style="height:2000px;"> <!-- altura extra para probar el scroll -->
+  <!-- Botón Scroll Top -->
+  <button id="btnScrollTop" class="d-flex">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btnScrollTop = document.getElementById("btnScrollTop");
+
+    // Mostrar/ocultar el botón según el scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        btnScrollTop.classList.add("show");
+      } else {
+        btnScrollTop.classList.remove("show");
+      }
+    });
+
+    // Acción al hacer clic: scroll hacia arriba
+    btnScrollTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  
+      <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  /* Colores temáticos de taxi */
+  .bg-taxi-yellow { background-color: #FFD600; } /* Amarillo taxi */
+  .bg-taxi-black { background-color: #000000; } /* Negro taxi */
+  .text-taxi-black { color: #000000; }
+  .text-taxi-yellow { color: #FFD600; }
+
+  /* Estilo del menú */
+  .navbar-dark .navbar-nav .nav-link { 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    transition: all 0.3s ease;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #FFD600;
+    color: #000000;
+    border-radius: 4px;
+  }
+  .navbar-dark .navbar-brand { 
+    color: #FFD600; 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    text-shadow: 1px 1px 4px #000000; 
+  }
+
+  footer { 
+    background-color: #000000; 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    text-shadow: 1px 1px 3px #333333;
+  }
+
+  /* Tamaños y efectos de texto */
+  header h1 { 
+    font-size: 3.5rem; 
+    font-weight: bold; 
+    text-shadow: 3px 3px 6px #000000; 
+  }
+  header p { 
+    font-size: 1.5rem; 
+    text-shadow: 1px 1px 4px #333333; 
+  }
+  section h2 { 
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    text-shadow: 1px 1px 5px #000000; 
+  }
+  section h5 { 
+    font-size: 1.8rem; 
+    text-shadow: 1px 1px 4px #000000; 
+  }
+  section p { 
+    font-size: 1.3rem; 
+    text-shadow: 1px 1px 3px #333333; 
+  }
+</style>
+
+  <style>
+    /* Colores temáticos de taxi */
+    .bg-taxi-yellow { background-color: #FFD600; } /* Amarillo taxi */
+    .bg-taxi-black { background-color: #000000; } /* Negro taxi */
+    .text-taxi-black { color: #000000; }
+    .text-taxi-yellow { color: #FFD600; }
+    .navbar-dark .navbar-nav .nav-link { color: #FFD600; font-size: 1.2rem; } /* Más grande */
+    .navbar-dark .navbar-brand { color: #FFD600; font-weight: bold; font-size: 1.5rem; }
+    footer { background-color: #000000; color: #FFD600; font-size: 1.2rem; }
+
+    /* Tamaños de texto personalizados */
+    header h1 { font-size: 3.7rem; font-weight: bold; }
+    header p { font-size: 1.5rem; }
+    section h2 { font-size: 2.5rem; font-weight: bold; }
+    section h5 { font-size: 1.8rem; }
+    section p { font-size: 1.3rem; }
+  </style>
+</head>
+
+    <!-- Encabezado -->
+<header class="text-center bg-dark text-white position-relative">
+  <img src="banner.webp" 
+       alt="Taxi en La Habana" 
+       style="width: 99%; height: 700px; object-fit: cover;">
+
+</header>
+
+
+<body>
+    <!-- Menú de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">MiguelGo - Cuba Taxi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="flota.html">Nuestra Flota</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="reseñas.html">Reseñas</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+
+<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+  /* Colores temáticos de taxi */
+  .bg-taxi-yellow { background-color: #FFD600; } /* Amarillo taxi */
+  .bg-taxi-black { background-color: #000000; } /* Negro taxi */
+  .text-taxi-black { color: #000000; }
+  .text-taxi-yellow { color: #FFD600; }
+
+  /* Estilo del menú */
+  .navbar-dark .navbar-nav .nav-link { 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    transition: all 0.3s ease;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #FFD600;
+    color: #000000;
+    border-radius: 4px;
+  }
+  .navbar-dark .navbar-brand { 
+    color: #FFD600; 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    text-shadow: 1px 1px 4px #000000; 
+  }
+
+  footer { 
+    background-color: #000000; 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    text-shadow: 1px 1px 3px #333333;
+  }
+
+  /* Tamaños y efectos de texto */
+  header h1 { 
+    font-size: 3.5rem; 
+    font-weight: bold; 
+    text-shadow: 3px 3px 6px #000000; 
+    animation: fadeInDown 2s ease-in-out;
+  }
+  header p { 
+    font-size: 1.5rem; 
+    text-shadow: 1px 1px 4px #333333; 
+    animation: fadeInUp 2s ease-in-out;
+  }
+  section h2 { 
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    text-shadow: 1px 1px 5px #000000; 
+    animation: zoomIn 2s ease-in-out;
+  }
+  section h5 { 
+    font-size: 1.8rem; 
+    text-shadow: 1px 1px 4px #000000; 
+    animation: fadeIn 2s ease-in-out;
+  }
+  section p { 
+    font-size: 1.3rem; 
+    text-shadow: 1px 1px 3px #333333; 
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  /* Animaciones */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+<style>
+  /* Animación suave en imágenes del carrusel */
+  .carousel-item img {
+    animation: zoomSlide 2s ease-in-out;
+    transition: transform 1s ease;
+  }
+
+  /* Efecto al pasar de una imagen a otra */
+  @keyframes zoomSlide {
+    from { opacity: 0; transform: scale(1.1) translateX(50px); }
+    to { opacity: 1; transform: scale(1) translateX(0); }
+  }
+
+  /* Opcional: efecto hover para resaltar aún más */
+  .carousel-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+</style>
+<style>
+  /* Colores temáticos de taxi */
+  .bg-taxi-yellow { background-color: #FFD600; } /* Amarillo taxi */
+  .bg-taxi-black { background-color: #000000; } /* Negro taxi */
+  .text-taxi-black { color: #000000; }
+  .text-taxi-yellow { color: #FFD600; }
+
+  /* Estilo del menú */
+  .navbar-dark .navbar-nav .nav-link { 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    transition: all 0.3s ease;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #FFD600;
+    color: #000000;
+    border-radius: 4px;
+  }
+  .navbar-dark .navbar-brand { 
+    color: #FFD600; 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    text-shadow: 1px 1px 4px #000000; 
+  }
+
+  footer { 
+    background-color: #000000; 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    text-shadow: 1px 1px 3px #333333;
+  }
+
+  /* Tamaños y efectos de texto */
+  header h1 { 
+    font-size: 4rem; /* Más grande */
+    font-family: 'Segoe UI', 'Roboto', sans-serif; /* Fuente moderna */
+    font-weight: 600; 
+    text-shadow: 3px 3px 6px #000000; 
+    animation: fadeInDown 2s ease-in-out;
+  }
+  header p { 
+    font-size: 1.8rem; 
+    font-family: 'Segoe UI', 'Roboto', sans-serif; /* Igual que el título */
+    text-shadow: 1px 1px 4px #333333; 
+    animation: fadeInUp 2s ease-in-out;
+  }
+</style>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Nuestra Flota - MiguelGo Cuba Taxis</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <p class="lead text-center">
+          En <strong>MiguelGo Cuba Taxis</strong> contamos con una flota cuidadosamente seleccionada para ofrecerte la mejor experiencia de viaje en Cuba. 
+          Desde autos clásicos que reflejan la esencia de La Habana hasta vehículos modernos y vans espaciosas para grupos, cada taxi está mantenido con altos estándares de seguridad y comodidad.
+        </p>
+        <p class="text-center">
+          Lo que nos distingue no son solo los coches, sino las personas detrás del volante. Nuestros conductores son profesionales con años de experiencia, conocedores de la ciudad y apasionados por compartir la cultura cubana. 
+          Hablan varios idiomas, están comprometidos con la puntualidad y siempre te reciben con una sonrisa.
+        </p>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item"><i class="bi bi-shield-check text-primary"></i> Confianza y seguridad: vehículos inspeccionados regularmente y choferes certificados.</li>
+          <li class="list-group-item"><i class="bi bi-snow text-primary"></i> Comodidad garantizada: aire acondicionado, espacio para equipaje y servicios adicionales como Wi-Fi.</li>
+          <li class="list-group-item"><i class="bi bi-geo-alt text-primary"></i> Experiencia auténtica: recorridos que te conectan con la verdadera esencia de Cuba.</li>
+          <li class="list-group-item"><i class="bi bi-person-heart text-primary"></i> Atención personalizada: cada viaje se adapta a tus necesidades, ya sea un traslado rápido o un tour turístico completo.</li>
+        </ul>
+        <p class="text-center fw-bold">
+          Con <strong>MiguelGo Cuba Taxis</strong>, no solo llegas a tu destino: vives un trayecto memorable, seguro y lleno de identidad cubana. 
+          Por eso, elegirnos siempre será tu mejor decisión.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <title>Flota - Taxi</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Iconos de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .driver-profile {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .driver-profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+    .service-icons i {
+      font-size: 1.2rem;
+      margin-right: 8px;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <h2 class="text-center mb-4">Nuestra Flota</h2>
+  <div class="row g-4">
+
+    <!-- Taxi 1 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <img src="Flota/Luis Tarjeta.webp" class="card-img-top" alt="Taxi Moderno">
+        <div class="card-body">
+          <h5 class="card-title">Geely Emgrand 820</h5>
+          <p class="card-text">Capacidad: 4 pasajeros<br>Con aire acondicionado y música.</p>
+          <p class="card-text">4 Pax<br></p>
+          <div class="service-icons mb-2">
+            <i class="bi bi-wifi"></i>
+            <i class="bi bi-snow"></i>
+            <i class="bi bi-music-note-beamed"></i>
+          </div>
+          <!-- Perfil del conductor -->
+          <div class="driver-profile">
+            <img src="Flota/luis.webp" alt="Conductor Luis Ariel">
+            <div>
+              <strong>Luis Ariel Blanco</strong><br>
+              10 años de experiencia<br>
+              <strong>Servicios de guía por un costo adicional:</strong><br> Español, Inglés , Ruso , Portugues
+            </div>
+          </div>
+          <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#taxi1Modal">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Taxi 2 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <img src="Flota/Felipito tarjeta.webp" class="card-img-top" alt="Taxi Van">
+        <div class="card-body">
+          <h5 class="card-title">Hyundai H1</h5>
+          <p class="card-text">Capacidad: 8 pasajeros<br>Ideal para traslados rápidos y cómodos, Aire Acondicionado y Comfort.</p>
+          <p class="card-text">9 Pax.<br></p>
+          <div class="service-icons mb-2">
+            <i class="bi bi-snow"></i>
+            <i class="bi bi-people"></i>
+            <i class="bi bi-bag"></i>
+          </div>
+          <!-- Perfil del conductor -->
+          <div class="driver-profile">
+            <img src="Flota/Feli.webp" alt="Conductor Felipe">
+            <div>
+              <strong>Felipe Paz</strong><br>
+              11 años de experiencia<br>
+              <strong>Servicios de guía por un costo adicional:</strong><br> Español, Inglés , Ruso , Portugues
+            </div>
+          </div>
+          <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#taxi2Modal">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Taxi 3 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <img src="Flota/Giraldo Tarjeta.webp" class="card-img-top" alt="Taxi Moderno">
+        <div class="card-body">
+          <h5 class="card-title">Peugeot 301</h5>
+          <p class="card-text">Capacidad: 4 pasajeros<br>Perfecto para turismos y viajes.</p>
+          <p class="card-text">4 Pax.<br></p>
+          <div class="service-icons mb-2">
+            <i class="bi bi-people"></i>
+            <i class="bi bi-bag-check"></i>
+            <i class="bi bi-snow"></i>
+          </div>
+          <!-- Perfil del conductor -->
+          <div class="driver-profile">
+            <img src="Flota/Giraldo Ramos Tamayo.webp" alt="Conductor Giraldo">
+            <div>
+              <strong>Giraldo Ramos Tamayo</strong><br>
+              9 años de experiencia<br>
+              <strong>Servicios de guía por un costo adicional:</strong><br> Español, Inglés , Ruso , Portugues
+            </div>
+          </div>
+          <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#taxi3Modal">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+        <!-- Taxi 4 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <img src="Flota/Jose  Tarjeta.webp" class="card-img-top" alt="Van Moderna">
+        <div class="card-body">
+          <h5 class="card-title">Mercedes Vito</h5>
+          <p class="card-text">Capacidad: 8 pasajeros<br>Con aire acondicionado y música.</p>
+          <p class="card-text">8 Pax<br></p>
+          <div class="service-icons mb-2">
+            <i class="bi bi-snow"></i>
+            <i class="bi bi-people"></i>
+            <i class="bi bi-music-note-beamed"></i>
+          </div>
+          <!-- Perfil del conductor -->
+          <div class="driver-profile">
+            <img src="Flota/Jose Luis.webp" alt="Conductor Jose Luis">
+            <div>
+              <strong>Jose Luis</strong><br>
+              10 años de experiencia<br>
+              <strong>Servicios de guía por un costo adicional:</strong><br> Español, Inglés , Ruso , Portugues
+            </div>
+          </div>
+          <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#taxi4Modal">Ver más</button>
+        </div>
+      </div>
+    </div>
+            <!-- Taxi 5 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <img src="Flota/Damian tarjeta.webp" class="card-img-top" alt="Taxi Moderno">
+        <div class="card-body">
+          <h5 class="card-title">Mercedes Splinter</h5>
+          <p class="card-text">Capacidad: 8 pasajeros<br>Con aire acondicionado y música.</p>
+          <p class="card-text">11 Pax<br></p>
+          <div class="service-icons mb-2">
+            <i class="bi bi-snow"></i>
+            <i class="bi bi-people"></i>
+            <i class="bi bi-music-note-beamed"></i>
+          </div>
+          <!-- Perfil del conductor -->
+          <div class="driver-profile">
+            <img src="Flota/Damian Casas.webp" alt="Conductor Damian Casas">
+            <div>
+              <strong>Damian Casas</strong><br>
+              10 años de experiencia<br>
+              <strong>Servicios de guía por un costo adicional:</strong><br> Español, Inglés , Ruso , Portugues
+            </div>
+          </div>
+          <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#taxi5Modal">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="taxi1Modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Geely Embgrand 820</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Flota/Luis Tarjeta.webp" class="img-fluid mb-3" alt="Taxi Clásico">
+        <p>Un ícono de La Habana, perfecto para recorridos turísticos con estilo.</p>
+        <div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Luis Ariel</h2>
+    <p class="card-text">
+      Con más de 10 años de experiencia en la agencia, Luis Ariel se ha consolidado como un profesional ejemplar. 
+      Su trayectoria refleja compromiso, disciplina y una visión integral del sector. 
+    </p>
+    <ul>
+      <li><strong>Responsabilidad:</strong> Cumple con seriedad cada proyecto.</li>
+      <li><strong>Liderazgo:</strong> Motiva y guía equipos con confianza.</li>
+      <li><strong>Conocimiento técnico:</strong> Domina procesos clave de la agencia.</li>
+      <li><strong>Profesionalismo:</strong> Mantiene altos estándares éticos y de calidad.</li>
+      <li><strong>Innovación:</strong> Busca constantemente optimizar recursos y resultados.</li>
+    </ul>
+    <p class="card-text">
+      Dentro de la agencia, Luis Ariel es considerado un pilar fundamental, reconocido por colegas y clientes como un profesional confiable y visionario.
+    </p>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="taxi2Modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Hyundai H1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Flota/Felipito tarjeta.webp" class="img-fluid mb-3" alt="Taxi Moderno">
+        <p>Vehículo moderno, ideal para traslados rápidos y cómodos en la ciudad y viajes turisticos por los monumenros más grandes de toda Cuba.</p>
+        <div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Felipe</h2>
+    <p class="card-text">
+      Con más de 10 años de experiencia en la agencia, Felipe se ha consolidado como un profesional íntegro y confiable. 
+      Su trayectoria refleja compromiso, disciplina y una visión estratégica que aporta valor a cada proyecto.
+    </p>
+    <ul>
+      <li><strong>Responsabilidad:</strong> Cumple con excelencia y seriedad en cada tarea.</li>
+      <li><strong>Liderazgo:</strong> Inspira y guía equipos hacia objetivos comunes.</li>
+      <li><strong>Conocimiento técnico:</strong> Domina procesos clave y aporta soluciones efectivas.</li>
+      <li><strong>Profesionalismo:</strong> Mantiene altos estándares éticos y de calidad.</li>
+      <li><strong>Innovación:</strong> Busca constantemente nuevas formas de optimizar resultados.</li>
+    </ul>
+    <p class="card-text">
+      Dentro de la agencia, Felipe es considerado un pilar fundamental, reconocido por colegas y clientes como un profesional visionario y comprometido.
+    </p>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="taxi3Modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Peugeot 301</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Flota/Giraldo Tarjeta.webp" class="img-fluid mb-3" alt="Taxi Moderno">
+        <h2 class="card-title">Giraldo Ramos Tamayo</h2>
+    <p class="card-text">
+      Con más de 10 años de experiencia en la agencia, Giraldo se ha consolidado como un profesional ejemplar. 
+      Su trayectoria refleja compromiso, disciplina y una visión integral del sector. 
+    </p>
+    <ul>
+      <li><strong>Responsabilidad:</strong> Cumple con seriedad cada proyecto.</li>
+      <li><strong>Liderazgo:</strong> Motiva y guía equipos con confianza.</li>
+      <li><strong>Conocimiento técnico:</strong> Domina procesos clave de la agencia.</li>
+      <li><strong>Profesionalismo:</strong> Mantiene altos estándares éticos y de calidad.</li>
+      <li><strong>Innovación:</strong> Busca constantemente optimizar recursos y resultados.</li>
+    </ul>
+    <p class="card-text">
+      </div>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="taxi4Modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mercedes Vito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Flota/Jose  Tarjeta.webp" class="img-fluid mb-3" alt="Taxi Van">
+        <p>Un ícono de La Habana, perfecto para recorridos turísticos con estilo.</p>
+        <div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Jose Luis</h2>
+    <p class="card-text">
+      Con más de 10 años de experiencia en la agencia, Jose Luis se ha consolidado como un profesional ejemplar. 
+      Su trayectoria refleja compromiso, disciplina y una visión integral del sector. 
+    </p>
+    <ul>
+      <li><strong>Responsabilidad:</strong> Cumple con seriedad cada proyecto.</li>
+      <li><strong>Liderazgo:</strong> Motiva y guía equipos con confianza.</li>
+      <li><strong>Conocimiento técnico:</strong> Domina procesos clave de la agencia.</li>
+      <li><strong>Profesionalismo:</strong> Mantiene altos estándares éticos y de calidad.</li>
+      <li><strong>Innovación:</strong> Busca constantemente optimizar recursos y resultados.</li>
+    </ul>
+    <p class="card-text">
+      Dentro de la agencia, Jose Luis es considerado un pilar fundamental, reconocido por colegas y clientes como un profesional confiable y visionario.
+    </p>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="taxi5Modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Geely Embgrand 820</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Flota/Damian tarjeta.webp" class="img-fluid mb-3" alt="Taxi Clásico">
+        <p>Un ícono de La Habana, perfecto para recorridos turísticos con estilo.</p>
+        <div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Damian Casas</h2>
+    <p class="card-text">
+      Con más de 10 años de experiencia en la agencia, Damian Casas se ha consolidado como un profesional ejemplar. 
+      Su trayectoria refleja compromiso, disciplina y una visión integral del sector. 
+    </p>
+    <ul>
+      <li><strong>Responsabilidad:</strong> Cumple con seriedad cada proyecto.</li>
+      <li><strong>Liderazgo:</strong> Motiva y guía equipos con confianza.</li>
+      <li><strong>Conocimiento técnico:</strong> Domina procesos clave de la agencia.</li>
+      <li><strong>Profesionalismo:</strong> Mantiene altos estándares éticos y de calidad.</li>
+      <li><strong>Innovación:</strong> Busca constantemente optimizar recursos y resultados.</li>
+    </ul>
+    <p class="card-text">
+      Dentro de la agencia, Damian Casas es considerado un pilar fundamental, reconocido por colegas y clientes como un profesional confiable y visionario.
+    </p>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<section>
+</section>
+</body>
+</html>

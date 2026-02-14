@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reseñas - MiguelGo Cuba Taxi</title>
+  <body style="background-color: rgb(247, 241, 225);">
+</body>
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Estilo del botón flotante */
+    #btnScrollTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background-color: #FFD700; /* Amarillo taxi */
+      color: black;
+      border: none;
+      display: none; /* Oculto por defecto */
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+    }
+    #btnScrollTop.show {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #btnScrollTop:hover {
+      background-color: #FFC300; /* tono más oscuro al pasar el mouse */
+    }
+  </style>
+</head>
+<body style="height:2000px;"> <!-- altura extra para probar el scroll -->
+  <!-- Botón Scroll Top -->
+  <button id="btnScrollTop" class="d-flex">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btnScrollTop = document.getElementById("btnScrollTop");
+
+    // Mostrar/ocultar el botón según el scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        btnScrollTop.classList.add("show");
+      } else {
+        btnScrollTop.classList.remove("show");
+      }
+    });
+
+    // Acción al hacer clic: scroll hacia arriba
+    btnScrollTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  
+      <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  /* Colores temáticos de taxi */
+  .bg-taxi-yellow { background-color: #FFD600; } /* Amarillo taxi */
+  .bg-taxi-black { background-color: #000000; } /* Negro taxi */
+  .text-taxi-black { color: #000000; }
+  .text-taxi-yellow { color: #FFD600; }
+
+  /* Estilo del menú */
+  .navbar-dark .navbar-nav .nav-link { 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    transition: all 0.3s ease;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #FFD600;
+    color: #000000;
+    border-radius: 4px;
+  }
+  .navbar-dark .navbar-brand { 
+    color: #FFD600; 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    text-shadow: 2px 2px 4px #000000; 
+  }
+
+  footer { 
+    background-color: #000000; 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    text-shadow: 1px 1px 3px #333333;
+  }
+
+  /* Tamaños y efectos de texto */
+  header h1 { 
+    font-size: 3.5rem; 
+    font-weight: bold; 
+    text-shadow: 3px 3px 6px #000000; 
+  }
+  header p { 
+    font-size: 1.5rem; 
+    text-shadow: 2px 2px 4px #333333; 
+  }
+  section h2 { 
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px #000000; 
+  }
+  section h5 { 
+    font-size: 1.8rem; 
+    text-shadow: 2px 2px 4px #000000; 
+  }
+  section p { 
+    font-size: 1.3rem; 
+    text-shadow: 1px 1px 3px #333333; 
+  }
+</style>
+
+  <style>
+    /* Colores temáticos de taxi */
+    .bg-taxi-yellow { background-color: #FFD600; } /* Amarillo taxi */
+    .bg-taxi-black { background-color: #000000; } /* Negro taxi */
+    .text-taxi-black { color: #000000; }
+    .text-taxi-yellow { color: #FFD600; }
+    .navbar-dark .navbar-nav .nav-link { color: #FFD600; font-size: 1.2rem; } /* Más grande */
+    .navbar-dark .navbar-brand { color: #FFD600; font-weight: bold; font-size: 1.5rem; }
+    footer { background-color: #000000; color: #FFD600; font-size: 1.2rem; }
+
+    /* Tamaños de texto personalizados */
+    header h1 { font-size: 3.7rem; font-weight: bold; }
+    header p { font-size: 1.5rem; }
+    section h2 { font-size: 2.5rem; font-weight: bold; }
+    section h5 { font-size: 1.8rem; }
+    section p { font-size: 1.3rem; }
+  </style>
+</head>
+<body>
+    <!-- Encabezado -->
+<header class="text-center bg-dark text-white position-relative">
+  <img src="banner.webp" 
+       alt="Taxi en La Habana" 
+       style="width: 99%; height: 700px; object-fit: cover;">
+
+</header>
+
+    <!-- Menú de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">MiguelGo - Cuba Taxi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="flota.html">Nuestra Flota</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="reseñas.html">Reseñas</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+  /* Colores temáticos de taxi */
+  .bg-taxi-yellow { background-color: #FFD600; } /* Amarillo taxi */
+  .bg-taxi-black { background-color: #000000; } /* Negro taxi */
+  .text-taxi-black { color: #000000; }
+  .text-taxi-yellow { color: #FFD600; }
+
+  /* Estilo del menú */
+  .navbar-dark .navbar-nav .nav-link { 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    transition: all 0.3s ease;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #FFD600;
+    color: #000000;
+    border-radius: 4px;
+  }
+  .navbar-dark .navbar-brand { 
+    color: #FFD600; 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    text-shadow: 2px 2px 4px #000000; 
+  }
+
+  footer { 
+    background-color: #000000; 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    text-shadow: 1px 1px 3px #333333;
+  }
+
+  /* Tamaños y efectos de texto */
+  header h1 { 
+    font-size: 3.5rem; 
+    font-weight: bold; 
+    text-shadow: 3px 3px 6px #000000; 
+    animation: fadeInDown 2s ease-in-out;
+  }
+  header p { 
+    font-size: 1.5rem; 
+    text-shadow: 2px 2px 4px #333333; 
+    animation: fadeInUp 2s ease-in-out;
+  }
+  section h2 { 
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px #000000; 
+    animation: zoomIn 2s ease-in-out;
+  }
+  section h5 { 
+    font-size: 1.8rem; 
+    text-shadow: 2px 2px 4px #000000; 
+    animation: fadeIn 2s ease-in-out;
+  }
+  section p { 
+    font-size: 1.3rem; 
+    text-shadow: 1px 1px 3px #333333; 
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  /* Animaciones */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+<style>
+  /* Animación suave en imágenes del carrusel */
+  .carousel-item img {
+    animation: zoomSlide 2s ease-in-out;
+    transition: transform 1s ease;
+  }
+
+  /* Efecto al pasar de una imagen a otra */
+  @keyframes zoomSlide {
+    from { opacity: 0; transform: scale(1.1) translateX(50px); }
+    to { opacity: 1; transform: scale(1) translateX(0); }
+  }
+
+  /* Opcional: efecto hover para resaltar aún más */
+  .carousel-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+</style>
+<style>
+  /* Colores temáticos de taxi */
+  .bg-taxi-yellow { background-color: #FFD600; } /* Amarillo taxi */
+  .bg-taxi-black { background-color: #000000; } /* Negro taxi */
+  .text-taxi-black { color: #000000; }
+  .text-taxi-yellow { color: #FFD600; }
+
+  /* Estilo del menú */
+  .navbar-dark .navbar-nav .nav-link { 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    transition: all 0.3s ease;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    background-color: #FFD600;
+    color: #000000;
+    border-radius: 4px;
+  }
+  .navbar-dark .navbar-brand { 
+    color: #FFD600; 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    text-shadow: 2px 2px 4px #000000; 
+  }
+
+  footer { 
+    background-color: #000000; 
+    color: #FFD600; 
+    font-size: 1.2rem; 
+    text-shadow: 1px 1px 3px #333333;
+  }
+
+  /* Tamaños y efectos de texto */
+  header h1 { 
+    font-size: 4rem; /* Más grande */
+    font-family: 'Segoe UI', 'Roboto', sans-serif; /* Fuente moderna */
+    font-weight: 600; 
+    text-shadow: 3px 3px 6px #000000; 
+    animation: fadeInDown 2s ease-in-out;
+  }
+  header p { 
+    font-size: 1.8rem; 
+    font-family: 'Segoe UI', 'Roboto', sans-serif; /* Igual que el título */
+    text-shadow: 2px 2px 4px #333333; 
+    animation: fadeInUp 2s ease-in-out;
+  }
+</style>
+
+  <title>Reseñas del Servicio de Taxi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .star-rating {
+      direction: rtl;
+      display: inline-flex;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .star-rating input {
+      display: none;
+    }
+    .star-rating label {
+      color: #ccc;
+      padding: 0 5px;
+    }
+    .star-rating input:checked ~ label {
+      color: gold;
+    }
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: gold;
+    }
+  </style>
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <form action="https://formspree.io/f/xlgwjpzv" method="post">
+    <label>Comentario:</label>
+    <textarea name="comentario"></textarea>
+
+    <label>Puntuación:</label>
+    <select name="rating">
+      <option>★☆☆☆☆</option>
+      <option>★★☆☆☆</option>
+      <option>★★★☆☆</option>
+      <option>★★★★☆</option>
+      <option>★★★★★</option>
+    </select>
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
+
+  <!-- icono whatsapp centrado -->
+</section>
+ <section id="contacto" class="py-5 bg-rgb(247, 241, 225)  text-center">
+  <div class="container">
+<a href="https://wa.me/5359139946" target="_blank" class="btn btn-success"><p class="mb-1">Vía Whatsapp</p>
+  <i class="bi bi-whatsapp"></i>
+</a>
+</div>
+</section>
+
+</a>
+  <footer class="bg-dark text-warning text-center py-3">
+    <p>&copy; 2026 MiguelGo - Habana Taxi - Todos los derechos reservados</p>
+  </footer>
+</body>
+</html
